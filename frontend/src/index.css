@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/* Custom Properties */
+:root {
+  --primary: #FFD700;  /* Gold */
+  --secondary: #B8860B;  /* Dark Goldenrod */
+  --background: #121212;  /* Very Dark Gray */
+  --surface: #1E1E1E;  /* Dark Gray */
+  --text: #FFFFFF;  /* White */
+  --text-secondary: #B3B3B3;  /* Light Gray */
+  --accent: #FF0000;  /* Red */
+  --error: #FF4444;  /* Light Red */
+}
+
+/* Base Styles */
+body {
+  background: var(--background);
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background: var(--surface);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: var(--accent);
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+/* Main Content Styles */
+.pages {
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+/* Homepage Styles */
+.home {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+/* Workout Details Styles */
+.workout-details {
+  background: var(--surface);
+  border-radius: 8px;
+  margin: 20px 0;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--primary);
+}
+
+.workout-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.2);
+}
+
+.workout-details h4 {
+  margin: 0 0 15px 0;
+  font-size: 1.4em;
+  color: var(--primary);
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 1em;
+  color: var(--text-secondary);
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--text);
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.workout-details span:hover {
+  background: #CC0000;
+}
+
+/* Form Styles */
+form {
+  background: var(--surface);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--primary);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  padding: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: var(--background);
+  border: 1px solid var(--secondary);
+  color: var(--text);
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+form button {
+  background: var(--primary);
+  border: none;
+  color: var(--background);
+  padding: 12px 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background: var(--secondary);
+}
+
+/* Error Styles */
+div.error {
+  padding: 15px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* Utility Styles */
+.utility .left {
+  right: 80px;
+}
+
+/* Auth Form Styles */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--primary);
+}
+
+/* Logout Button Styles */
+.logout {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 8px 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout:hover {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+  
+  form.signup, form.login {
+    margin: 40px auto;
+  }
+}

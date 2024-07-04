@@ -1,0 +1,47 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:4.4.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=merin_mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo_merin
+      - MONGO_INITDB_HOST=mongo
+      - MONGO_INITDB_PORT=27017
+      - MONGO_INITDB_DATABASE=merin  
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      #- ./backend/.env
+      - MONGO_INITDB_ROOT_USERNAME=merin_mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo_merin
+      - MONGO_INITDB_HOST=mongo
+      - MONGO_INITDB_PORT=27017
+      - MONGO_INITDB_DATABASE=merin  
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - mongo
+
+
+  client:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - server
+
+networks:
+  mern-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
